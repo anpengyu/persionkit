@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PersonalUtils</string>
+
+    <!--主界面底部文字-->
+    <string name="main_bottom_item1">密码</string>
+    <string name="main_bottom_item2">账本</string>
+    <string name="main_bottom_item3">日记</string>
+    <string name="main_bottom_item4">我的</string>
+</resources>

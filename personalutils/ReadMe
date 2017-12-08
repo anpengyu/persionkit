@@ -1,0 +1,12 @@
+#工具类使用方法
+##主界面底部栏：
+    1.主应用继承KitMapActivity
+    2.重写onCreate()
+    3.重写initData()方法，在该方法中创建ViewPager的Adapter（FragmentPagerAdapter），将adapter和名字数组 通过initVpAdapter()方法传递过去
+    4.
+        apy_main_bottom_layout（主界面布局）
+        （无需修改）main_selector_item1(2/3/4) 底部四个状态选择器
+        main_item1_iv_selected（2/3/4）
+        main_item1_iv   使用时需要将该图片换为自己使用的底部图片
+        main_bottom_tv_color_selector   文字选中颜色
+        main_bottom_tv_color_default 文字默认颜色

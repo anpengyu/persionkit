@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--主体颜色-->
+    <color name="theme_color">#25242d</color>
+    <!--KitMainActivity 底部导航栏-->
+    <color name="main_bottom_color">#1a191f</color>
+    <color name="white">#fff</color>
+    <color name="black">#000</color>
+    <color name="red">#fb1a44</color>
+    <!-- 说明字体颜色-->
+    <color name="gray_tv">#888</color>
+
+    <color name="main_bottom_tv_color_selector">@color/colorPrimary</color>
+    <color name="main_bottom_tv_color_default">@color/gray_tv</color>
+</resources>
