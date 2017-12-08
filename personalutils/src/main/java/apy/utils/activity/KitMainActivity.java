@@ -71,6 +71,7 @@ public abstract class KitMainActivity extends BaseUtilsActivity {
 //                mainPswRootTv.setTextColor(Color.parseColor("#fff"));
                 mainPswRootTv.setTextColor(getResources().getColor(ints[1]));
                 mainPswRootTv.setDrawableTop(ints1[0][1]);
+                item1Click();
             }
         });
         mainTallyRootTv.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +82,7 @@ public abstract class KitMainActivity extends BaseUtilsActivity {
                 mainVp.setCurrentItem(1, false);
                 mainTallyRootTv.setTextColor(getResources().getColor(ints[1]));
                 mainTallyRootTv.setDrawableTop(ints1[1][1]);
+                item2Click();
             }
         });
         mainDiaryRootTv.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +93,7 @@ public abstract class KitMainActivity extends BaseUtilsActivity {
                 mainDiaryRootTv.setDrawableTop(ints1[2][1]);
                 mainVp.setCurrentItem(2, false);
                 mainDiaryRootTv.setTextColor(getResources().getColor(ints[1]));
+                item3Click();
             }
         });
         mainMeRootTv.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +104,18 @@ public abstract class KitMainActivity extends BaseUtilsActivity {
                 mainVp.setCurrentItem(3, false);
                 mainMeRootTv.setTextColor(getResources().getColor(ints[1]));
                 mainMeRootTv.setDrawableTop(ints1[3][1]);
+                item4Click();
             }
         });
+    }
+
+    private void item1Click() {
+    }
+    private void item2Click() {
+    }
+    private void item3Click() {
+    }
+    private void item4Click() {
     }
 
     protected void initData() {
