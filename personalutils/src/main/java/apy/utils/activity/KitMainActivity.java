@@ -109,13 +109,13 @@ public abstract class KitMainActivity extends BaseUtilsActivity {
         });
     }
 
-    private void item1Click() {
+    public void item1Click() {
     }
-    private void item2Click() {
+    public void item2Click() {
     }
-    private void item3Click() {
+    public void item3Click() {
     }
-    private void item4Click() {
+    public void item4Click() {
     }
 
     protected void initData() {
