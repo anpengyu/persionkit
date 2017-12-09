@@ -6,8 +6,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.telephony.TelephonyManager;
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -130,7 +133,43 @@ public class UIUtils {
                 return Constants.NETWORK_CLASS_UNKNOWN;
         }
     }
+    /**
+     * 禁止EditText输入空格
+     * @param editText
+     */
+    public static void setEditTextInhibitInputSpace(EditText editText){
+        InputFilter filter=new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                if(source.equals(" "))return "";
+                else return null;
+            }
+        };
+        editText.setFilters(new InputFilter[]{filter});
+    }
 
+    /**
+     * 禁止EditText输入特殊字符
+     * @param editText
+     */
+    public static void setEditTextInhibitInputSpeChat(final EditText editText){
+        InputFilter filter=new InputFilter() {
+            @Override
+            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+                String speChat="[`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]";
+                Pattern pattern = Pattern.compile(speChat);
+                Matcher matcher = pattern.matcher(source.toString());
+                if(matcher.find() || source.equals(" ") || editText.getText().length()>=6){
+                    return "";
+                }
+                else return null;
+            }
+        };
+        editText.setFilters(new InputFilter[]{filter});
+    }
+    public static boolean isEmpty(@Nullable CharSequence str) {
+        return str == null || str.length() == 0 || "".equals(str);
+    }
     /**
      *  获取当前时间
      * "yyyy年MM月dd日    HH:mm:ss"
