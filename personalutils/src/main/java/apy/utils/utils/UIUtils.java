@@ -1,11 +1,15 @@
 package apy.utils.utils;
 
+import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ActivityOptions;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.telephony.TelephonyManager;
@@ -225,4 +229,14 @@ public class UIUtils {
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
     }
+
+    public static void startActivityForAnimator(Activity activity, Class thisactivity, View view, String sharedElement){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Intent intent = new Intent(activity, thisactivity);
+            activity.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(activity, view, sharedElement).toBundle());
+        } else {
+            activity.startActivity(new Intent(activity, thisactivity));
+        }
+    }
+
 }
