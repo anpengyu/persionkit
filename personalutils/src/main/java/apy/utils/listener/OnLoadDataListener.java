@@ -13,4 +13,6 @@ public interface OnLoadDataListener<T extends BaseResponse> {
     void onSuccess(String state, T t);
 
     void onFailure(String code);
+
+    void onSuccess(String state,boolean isSuccess);
 }
