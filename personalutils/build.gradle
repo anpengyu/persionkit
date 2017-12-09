@@ -47,8 +47,10 @@ dependencies {
     compile 'org.greenrobot:greendao:3.2.2'
     compile 'com.squareup.picasso:picasso:2.3.2'
 
-    compile 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    compile 'com.google.code.gson:gson:2.8.0'
 }
 //
 //def siteUrl = 'https://github.com/anpengyu/PersionalKit'      // 项目的主页
