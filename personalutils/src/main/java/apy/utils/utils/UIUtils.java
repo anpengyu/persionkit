@@ -239,4 +239,32 @@ public class UIUtils {
         }
     }
 
+    /**
+     * dip-->px
+     *
+     * @param dip
+     * @return
+     */
+    public static int dip2Px(int dip) {
+        /*
+        1.  px/(ppi/160) = dp
+        2.  px/dp = density
+         */
+
+        //取得当前手机px和dp的倍数关系
+        float density = mContext.getResources().getDisplayMetrics().density;
+        int px = (int) (dip * density + .5f);
+        return px;
+    }
+
+    public static int px2Dip(int px) {
+        // 2.  px/dp = density
+
+        //取得当前手机px和dp的倍数关系
+        float density = mContext.getResources().getDisplayMetrics().density;
+
+        int dip = (int) (px / density + .5f);
+        return dip;
+    }
+
 }
