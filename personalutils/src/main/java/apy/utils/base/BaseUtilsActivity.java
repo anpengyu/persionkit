@@ -173,6 +173,13 @@ public abstract class BaseUtilsActivity<T extends BaseResponse> extends AppCompa
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
+
+    public  void startThisActivityForResult(Class<? extends AppCompatActivity> clazz,int requestCode){
+        Intent intent = new Intent(this,clazz);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivityForResult(intent,requestCode);
+    }
+
     public void exit() {
         if ((System.currentTimeMillis() - mExitTime) > 2000) {
             Toast.makeText(this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
