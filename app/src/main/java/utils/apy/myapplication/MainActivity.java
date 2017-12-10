@@ -1,27 +1,6 @@
 package utils.apy.myapplication;
 
-import apy.utils.activity.KitMainActivity;
-import apy.utils.net.BaseResponse;
+import android.support.v7.app.AppCompatActivity;
 
-public class MainActivity extends KitMainActivity {
-
-    @Override
-    protected String title() {
-        return null;
-    }
-
-    @Override
-    protected boolean controlTitle() {
-        return false;
-    }
-
-    @Override
-    public void onSuccess(String state, BaseResponse baseResponse) {
-
-    }
-
-    @Override
-    public void onFailure(String code) {
-
-    }
+public class MainActivity extends AppCompatActivity {
 }
