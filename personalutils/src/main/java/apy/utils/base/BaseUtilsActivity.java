@@ -62,6 +62,13 @@ public abstract class BaseUtilsActivity<T extends BaseResponse> extends AppCompa
         EventBus.getDefault().register(this);
     }
 
+    public void setBaseTitleColor(int color,int height){
+        baseTitleRl.setBackgroundColor(color);
+        ViewGroup.LayoutParams layoutParams = baseTitleRl.getLayoutParams();
+        layoutParams.height = UIUtils.dip2px(this, height);
+        baseTitleRl.setLayoutParams(layoutParams);
+    }
+
     public void initBottom() {
 
     }
