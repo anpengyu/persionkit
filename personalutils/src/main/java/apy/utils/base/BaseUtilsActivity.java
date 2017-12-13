@@ -196,9 +196,4 @@ public abstract class BaseUtilsActivity<T extends BaseResponse> extends AppCompa
 //            System.exit(0);
         }
     }
-
-    @Override
-    public void onSuccess(boolean state) {
-
-    }
 }

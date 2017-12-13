@@ -3,7 +3,6 @@ package apy.utils.net;
 import android.app.Dialog;
 import android.content.Context;
 
-import apy.utils.listener.OnLoadDataListener;
 import apy.utils.utils.AToast;
 import apy.utils.utils.DialogUtils;
 import apy.utils.utils.UIUtils;
@@ -15,16 +14,14 @@ import retrofit2.Response;
  * Created by apy on 2017/8/14.
  */
 
-public abstract class MyCall<T extends BaseResponse> implements Callback<T> {
+public abstract class MyCallBack<K extends BaseResponse> implements Callback {
 
     private Dialog loadingDialog;
     private boolean netWork;
     private Context mContext;
-    private OnLoadDataListener listener;
 
-    public MyCall(Context mContext, boolean isShowDialog, OnLoadDataListener listener) {
+    public MyCallBack(Context mContext, boolean isShowDialog) {
         this.mContext = mContext;
-        this.listener = listener;
         netWork = UIUtils.getNetWork();
         if (!netWork) {
             AToast.showTextToast("请检查您的网络设置");
@@ -46,22 +43,18 @@ public abstract class MyCall<T extends BaseResponse> implements Callback<T> {
             loadingDialog.dismiss();
             loadingDialog = null;
         }
-       BaseResponse body = (BaseResponse) response.body();
-        if (body != null && body.code!=null) {
-            String code = body.frozen;
-            if ("000".equals(code)) {
-                AToast.showTextToast("您的账户已经被冻结");
-                freezeResponse();
-                return;
-            }
+        BaseResponse body = (BaseResponse) response.body();
+        if (body != null && body.code != null) {
             if (body.code != null) {
                 if ("109".equals(body.code)) {
                     AToast.showTextToast("您的账户已过期，请重新登录");
                     accountOverdue();
                     return;
                 }
-                T t = (T) body;
-                onResponse(t,listener);
+                K t = (K) body;
+                onResponse(t);
+            }else{
+                onResponseFailure();
             }
         } else {
             AToast.showTextToast("网络错误");
@@ -87,7 +80,7 @@ public abstract class MyCall<T extends BaseResponse> implements Callback<T> {
      *
      * @param response
      */
-    public abstract void onResponse(T response,OnLoadDataListener listener);
+    public abstract void onResponse(K response);
 
     /**
      * 连接到服务器但是没有获取到数据
@@ -109,6 +102,7 @@ public abstract class MyCall<T extends BaseResponse> implements Callback<T> {
     public void accountOverdue() {
 
     }
+
     /**
      * 连接服务器失败
      *

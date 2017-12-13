@@ -62,12 +62,6 @@ public abstract class BaseUtilsFragment<T extends BaseResponse> extends Fragment
 
     protected abstract int layoutId();
 
-
-    @Override
-    public void onSuccess(boolean state) {
-
-    }
-
     public void initStatusBar(ViewGroup rootRl){
         int statusBar = UIUtils.getStatusBar(getActivity());
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) rootRl.getLayoutParams();

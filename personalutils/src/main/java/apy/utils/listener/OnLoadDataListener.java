@@ -7,12 +7,18 @@ import apy.utils.net.BaseResponse;
  */
 
 public interface OnLoadDataListener<T extends BaseResponse> {
+    /**
+     * code == 0T
+     */
+    void onSuccess(String state,T code);
+    /**
+     * code ！=000 异常信息
+     */
+    void onFaiure(String state,String code);
 
-    void onSuccess(boolean state);
+    /**
+     * code == null
+     */
+    void onException();
 
-    void onSuccess(String state, T t);
-
-    void onFailure(String code);
-
-    void onSuccess(String state,boolean isSuccess);
 }
