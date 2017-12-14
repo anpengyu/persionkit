@@ -1,11 +1,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="ResourceName">
 
     <apy.utils.rv.PullRecycler
         android:id="@+id/pullRecycler"
-        android:layout_marginLeft="1dp"
-        android:layout_marginRight="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
